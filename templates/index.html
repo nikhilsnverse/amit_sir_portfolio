@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision Teleradiology | Advanced Teleradiology Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-ring"></div>
+      <div class="loader-ring inner"></div>
+      <p class="loader-text">Vision Teleradiology</p>
+    </div>
+  </div>
+
+  <div id="scroll-progress"></div>
+
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Vision Teleradiology" class="logo-icon" height="36">
+        <span class="logo-text">Vision <span class="highlight">Teleradiology</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#director">Director</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-overlay"></div>
+  <div class="mobile-menu">
+    <ul class="mobile-links">
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#benefits">Benefits</a></li>
+      <li><a href="#director">Director</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <section id="hero">
+    <div id="three-container"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <div class="hero-badge">Pioneering Teleradiology in Bilaspur, Chhattisgarh</div>
+      <h1 class="hero-title">Advanced Teleradiology<br><span class="highlight">Solutions</span></h1>
+      <p class="hero-subtitle">Expert Radiology Reports Anytime, Anywhere</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary pulse-btn">Get Consultation</a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
+          <span class="stat-label">Support</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="99">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Accuracy</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Reports</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">About Us</span>
+        <h2 class="section-title">What is <span class="highlight">Teleradiology</span>?</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-intro reveal">
+        <div class="about-intro-card glass-card">
+          <i class="fas fa-quote-left"></i>
+          <p>Teleradiology is the secure electronic transmission of radiological images — <strong>X-rays, CT scans, MRI, and Ultrasound</strong> — from one location to another for expert interpretation by specialized radiologists, eliminating geographical barriers to quality healthcare.</p>
+        </div>
+      </div>
+      <div class="about-steps">
+        <div class="about-step glass-card reveal" data-delay="0">
+          <div class="about-step-number">01</div>
+          <div class="about-step-icon">
+            <i class="fas fa-x-ray"></i>
+          </div>
+          <h3 class="about-step-title">Image Capture</h3>
+          <p class="about-step-desc">High-resolution medical images acquired using advanced digital modalities.</p>
+          <div class="about-step-more">
+            <p>X-ray, CT, MRI, and Ultrasound images are captured by skilled technicians using state-of-the-art equipment following standardized protocols for optimal diagnostic quality.</p>
+          </div>
+        </div>
+        <div class="about-step glass-card reveal" data-delay="100">
+          <div class="about-step-number">02</div>
+          <div class="about-step-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3 class="about-step-title">Secure Transmission</h3>
+          <p class="about-step-desc">Encrypted transfer via HIPAA-compliant PACS networks.</p>
+          <div class="about-step-more">
+            <p>Images are securely transmitted with end-to-end encryption, ensuring patient confidentiality while enabling real-time access for radiologists anywhere in the world.</p>
+          </div>
+        </div>
+        <div class="about-step glass-card reveal" data-delay="200">
+          <div class="about-step-number">03</div>
+          <div class="about-step-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3 class="about-step-title">Expert Interpretation</h3>
+          <p class="about-step-desc">Board-certified radiologists analyze every study meticulously.</p>
+          <div class="about-step-more">
+            <p>Our team of experienced radiologists brings subspecialty expertise to every case, ensuring accurate and comprehensive diagnostic interpretations.</p>
+          </div>
+        </div>
+        <div class="about-step glass-card reveal" data-delay="300">
+          <div class="about-step-number">04</div>
+          <div class="about-step-icon">
+            <i class="fas fa-file-prescription"></i>
+          </div>
+          <h3 class="about-step-title">Report Delivery</h3>
+          <p class="about-step-desc">Detailed reports delivered with rapid turnaround times.</p>
+          <div class="about-step-more">
+            <p>Comprehensive diagnostic reports are delivered securely via our platform, available 24/7 for timely clinical decision-making and improved patient outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Our <span class="highlight">Services</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card glass-card hover-lift" data-delay="0">
+          <div class="service-icon">
+            <i class="fas fa-x-ray"></i>
+          </div>
+          <h3>X-ray Reporting</h3>
+          <p>Comprehensive interpretation of digital X-ray images with detailed reports and rapid turnaround time.</p>
+          <div class="service-hover-glow"></div>
+        </div>
+        <div class="service-card glass-card hover-lift" data-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-microscope"></i>
+          </div>
+          <h3>CT Scan Analysis</h3>
+          <p>Expert analysis of CT scans including axial, coronal, and sagittal reconstructions for accurate diagnosis.</p>
+          <div class="service-hover-glow"></div>
+        </div>
+        <div class="service-card glass-card hover-lift" data-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>MRI Reporting</h3>
+          <p>Detailed MRI reporting covering all sequences and protocols with subspecialist expertise.</p>
+          <div class="service-hover-glow"></div>
+        </div>
+        <div class="service-card glass-card hover-lift" data-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h3>Ultrasound Reporting</h3>
+          <p>Complete ultrasound interpretation including abdominal, pelvic, vascular, and obstetrics studies.</p>
+          <div class="service-hover-glow"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="benefits" class="section reveal">
+    <div class="parallax-bg"></div>
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why Choose Us</span>
+        <h2 class="section-title">Benefits of <span class="highlight">Teleradiology</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card glass-card" style="--delay: 0s">
+          <div class="benefit-number">01</div>
+          <i class="fas fa-clock benefit-icon"></i>
+          <h3>24/7 Radiology Support</h3>
+          <p>Round-the-clock access to expert radiologists ensures no delay in critical diagnoses.</p>
+        </div>
+        <div class="benefit-card glass-card" style="--delay: 0.15s">
+          <div class="benefit-number">02</div>
+          <i class="fas fa-bolt benefit-icon"></i>
+          <h3>Fast Turnaround Time</h3>
+          <p>Rapid report generation without compromising on quality or accuracy of interpretation.</p>
+        </div>
+        <div class="benefit-card glass-card" style="--delay: 0.3s">
+          <div class="benefit-number">03</div>
+          <i class="fas fa-bullseye benefit-icon"></i>
+          <h3>Accurate Diagnosis</h3>
+          <p>High-precision reporting by experienced radiologists using state-of-the-art technology.</p>
+        </div>
+        <div class="benefit-card glass-card" style="--delay: 0.45s">
+          <div class="benefit-number">04</div>
+          <i class="fas fa-microchip benefit-icon"></i>
+          <h3>Advanced Technology</h3>
+          <p>Cutting-edge PACS systems and secure transmission protocols for seamless image transfer.</p>
+        </div>
+        <div class="benefit-card glass-card" style="--delay: 0.6s">
+          <div class="benefit-number">05</div>
+          <i class="fas fa-globe benefit-icon"></i>
+          <h3>Remote Access</h3>
+          <p>Access to expert radiologists from remote and rural areas, bridging healthcare gaps.</p>
+        </div>
+        <div class="benefit-card glass-card" style="--delay: 0.75s">
+          <div class="benefit-number">06</div>
+          <i class="fas fa-shield-alt benefit-icon"></i>
+          <h3>Secure &amp; Compliant</h3>
+          <p>HIPAA-compliant data transmission with end-to-end encryption for patient confidentiality.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="director" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Leadership</span>
+        <h2 class="section-title">Meet Our <span class="highlight">Director</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="director-card glass-card zoom-in">
+        <div class="director-avatar">
+          <img src="{{ url_for('static', filename='images/amit_sir.png') }}" alt="Amit Raj Sinha" class="director-photo">
+          <div class="avatar-ring"></div>
+        </div>
+        <h3 class="director-name">Amit Raj Sinha</h3>
+        <p class="director-qualification">PGDBM (Delhi)</p>
+        <p class="director-designation">Director, Vision Teleradiology</p>
+        <p class="director-bio">Leading Vision Teleradiology with expertise in healthcare management and innovation. Dedicated to bridging the gap between advanced radiology services and healthcare providers across India.</p>
+        <div class="director-location">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Bilaspur, Chhattisgarh</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section reveal">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title">Contact <span class="highlight">Us</span></h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info glass-card reveal-left">
+          <h3>Reach Out to Us</h3>
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+              <a href="tel:+917880005851">+91-78800-05851</a>
+              <a href="tel:+918109710526">+91-81097-10526</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <span>Bilaspur, Chhattisgarh</span>
+              <span>India</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <span>info@visionteleradiology.com</span>
+            </div>
+          </div>
+          <div class="contact-cta-container">
+            <a href="tel:+917880005851" class="btn btn-primary pulse-btn contact-call-btn">
+              <i class="fas fa-phone-alt"></i> Call Now
+            </a>
+          </div>
+        </div>
+        <div class="contact-form glass-card reveal-right">
+          <h3>Send a Message</h3>
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Your Name" required>
+              <span class="form-focus-border"></span>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Your Email">
+              <span class="form-focus-border"></span>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+              <span class="form-focus-border"></span>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" placeholder="Your Message" required rows="4"></textarea>
+              <span class="form-focus-border"></span>
+            </div>
+            <button type="submit" class="btn btn-primary pulse-btn submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i></span>
+            </button>
+          </form>
+          <div id="formMessage" class="form-message"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Vision Teleradiology" class="logo-icon" height="32">
+            <span class="logo-text">Vision <span class="highlight">Teleradiology</span></span>
+          </div>
+          <p>Advanced teleradiology solutions delivering expert radiology reports anytime, anywhere across India.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-services">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">X-ray Reporting</a></li>
+            <li><a href="#services">CT Scan Analysis</a></li>
+            <li><a href="#services">MRI Reporting</a></li>
+            <li><a href="#services">Ultrasound</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+917880005851">+91-78800-05851</a></li>
+            <li><a href="tel:+918109710526">+91-81097-10526</a></li>
+            <li>Bilaspur, Chhattisgarh</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Vision Teleradiology. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="{{ url_for('static', filename='js/three-setup.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

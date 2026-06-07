@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Test",
+    "message": "Hello",
+    "id": 1
+  },
+  {
+    "name": "Color Test",
+    "message": "New theme looks great!",
+    "id": 2
+  }
+]
