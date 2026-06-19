@@ -16,8 +16,24 @@
     setTimeout(() => {
       preloader.classList.add('hidden');
       HeroScene.show();
+      typeText();
     }, 800);
   });
+
+  /* ---- TYPING ANIMATION ---- */
+  function typeText() {
+    const el = document.getElementById('typing-text');
+    const text = 'सर्वे भवन्तु सुखिनः, सर्वे सन्तु निरामयाः।';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        el.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      }
+    }
+    type();
+  }
 
   /* ---- NAVBAR SCROLL ---- */
   let lastScroll = 0;
@@ -87,18 +103,18 @@
     const counters = document.querySelectorAll('.stat-number');
 
     counters.forEach((counter) => {
-      const target = parseInt(counter.dataset.target);
-      const duration = 2000;
-      const step = Math.max(1, Math.floor(target / 60));
+      const target = parseFloat(counter.dataset.target);
+      const steps = 60;
+      const step = target / steps;
       let current = 0;
 
       const updateCounter = () => {
         current += step;
         if (current < target) {
-          counter.textContent = current;
+          counter.textContent = Number.isInteger(target) ? Math.floor(current) : current.toFixed(2);
           requestAnimationFrame(updateCounter);
         } else {
-          counter.textContent = target;
+          counter.textContent = Number.isInteger(target) ? target : target.toFixed(2);
         }
       };
 
