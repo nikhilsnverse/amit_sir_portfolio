@@ -531,12 +531,24 @@ img { max-width: 100%; }
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50px;
-  font-size: 1.1rem;
+  font-size: clamp(0.65rem, 1.8vw, 1.1rem);
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 28px;
   letter-spacing: 0.5px;
   backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .hero-badge {
+    padding: 6px 14px;
+    font-size: clamp(0.5rem, 2.5vw, 0.7rem);
+    white-space: normal;
+  }
+  .hero-badge .cursor {
+    height: 1em;
+  }
 }
 
 .hero-badge .cursor {
