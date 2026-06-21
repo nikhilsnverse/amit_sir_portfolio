@@ -1,6 +1,7 @@
 import os
 import json
-from flask import Flask, render_template, request, jsonify
+from datetime import date
+from flask import Flask, render_template, request, jsonify, make_response
 from flask_cors import CORS
 from dotenv import load_dotenv
 
@@ -36,6 +37,18 @@ def save_contact(data):
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/sitemap.xml")
+def sitemap():
+    resp = make_response(render_template("sitemap.xml"))
+    resp.headers["Content-Type"] = "application/xml"
+    return resp
+
+@app.route("/robots.txt")
+def robots():
+    resp = make_response(render_template("robots.txt"))
+    resp.headers["Content-Type"] = "text/plain"
+    return resp
 
 
 @app.route("/api/contact", methods=["POST"])

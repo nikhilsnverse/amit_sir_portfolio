@@ -1,0 +1,46 @@
+# Vision Teleradiology - robots.txt
+# https://visionteleradiology.in/robots.txt
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /static/images/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://visionteleradiology.in/sitemap.xml
+
+# Block private paths
+Disallow: /api/
+Disallow: /.env
+Disallow: /config.py
+
+# Block AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+# Crawl delay for aggressive bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
