@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard — Vision Teleradiology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f5f0;
+      min-height: 100vh;
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background: linear-gradient(180deg, #0d2137 0%, #1a3a5c 100%);
+      color: #fff;
+      padding: 28px 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      position: sticky;
+      top: 0;
+      flex-shrink: 0;
+    }
+    .sidebar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 24px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 20px;
+    }
+    .sidebar-brand i { font-size: 1.3rem; color: #81C784; }
+    .sidebar-brand span { font-size: 0.95rem; font-weight: 600; }
+    .sidebar-nav { list-style: none; padding: 0 12px; flex:1; }
+    .sidebar-nav li { margin-bottom: 2px; }
+    .sidebar-nav a {
+      display: flex; align-items: center; gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .sidebar-nav a:hover, .sidebar-nav a.active { background: rgba(255,255,255,0.1); color: #fff; }
+    .sidebar-nav a i { width: 20px; text-align: center; font-size: 0.9rem; }
+    .sidebar-footer { padding: 16px 24px 0; border-top: 1px solid rgba(255,255,255,0.08); margin-top: auto; }
+    .sidebar-footer a { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.82rem; padding: 10px 0; transition: color 0.2s; }
+    .sidebar-footer a:hover { color: #fff; }
+    .main { flex: 1; padding: 28px 32px; max-width: 100%; overflow-x: hidden; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px; flex-wrap: wrap; gap: 12px;
+    }
+    .topbar h1 { font-size: 1.5rem; font-weight: 700; color: #1a1a1a; }
+    .topbar-right { display: flex; align-items: center; gap: 16px; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat-card {
+      background: #fff; border-radius: 14px; padding: 22px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+      border: 1px solid rgba(30,136,229,0.08);
+    }
+    .stat-card .stat-icon { font-size: 1.5rem; margin-bottom: 8px; color: #1E88E5; }
+    .stat-card .stat-number { font-size: 1.8rem; font-weight: 800; color: #1a1a1a; line-height: 1.2; }
+    .stat-card .stat-label { font-size: 0.78rem; color: #718096; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 500; }
+    .stat-card:nth-child(2) .stat-icon { color: #2E7D32; }
+    .contacts-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px; }
+    .contacts-header h2 { font-size: 1.15rem; font-weight: 600; color: #1a1a1a; }
+    .search-box { display: flex; align-items: center; gap: 8px; background: #fff; border: 1px solid rgba(30,136,229,0.12); border-radius: 10px; padding: 0 14px; }
+    .search-box i { color: #a0aec0; font-size: 0.85rem; }
+    .search-box input { border: none; outline: none; padding: 10px 0; font-size: 0.85rem; font-family: inherit; background: transparent; min-width: 200px; }
+    .table-wrap { overflow-x: auto; border-radius: 14px; border: 1px solid rgba(30,136,229,0.08); box-shadow: 0 2px 12px rgba(0,0,0,0.04); background: #fff; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 650px; }
+    thead { background: linear-gradient(135deg, #0d2137, #1a3a5c); }
+    thead th { padding: 14px 18px; text-align: left; color: #fff; font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; white-space: nowrap; }
+    tbody tr { border-bottom: 1px solid rgba(30,136,229,0.06); transition: background 0.2s; }
+    tbody tr:hover { background: rgba(30,136,229,0.03); }
+    tbody td { padding: 14px 18px; color: #4a5568; }
+    tbody td:first-child { font-weight: 600; color: #1a1a1a; }
+    .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 600; background: rgba(30,136,229,0.1); color: #1E88E5; }
+    .msg-preview { max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #718096; }
+    .view-btn { padding: 5px 14px; border-radius: 8px; border: 1px solid rgba(30,136,229,0.2); background: transparent; color: #1E88E5; font-size: 0.78rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+    .view-btn:hover { background: #1E88E5; color: #fff; border-color: #1E88E5; }
+    .empty-state { text-align: center; padding: 60px 20px; color: #718096; }
+    .empty-state i { font-size: 2.5rem; margin-bottom: 12px; opacity: 0.3; }
+    .mobile-toggle { display: none; background: none; border: none; font-size: 1.3rem; color: #1a1a1a; cursor: pointer; }
+    @media (max-width: 768px) {
+      .sidebar { position: fixed; left: -250px; z-index: 1000; transition: left 0.3s; }
+      .sidebar.open { left: 0; }
+      .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 999; }
+      .sidebar-overlay.open { display: block; }
+      .main { padding: 20px 16px; }
+      .mobile-toggle { display: block; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .search-box input { min-width: 120px; }
+    }
+    .export-btn { display:inline-flex; align-items:center; gap:6px; padding:9px 16px; border-radius:10px; background:linear-gradient(135deg,#2E7D32,#43A047); color:#fff; text-decoration:none; font-size:0.82rem; font-weight:500; transition:all 0.2s; border:none; cursor:pointer; }
+    .export-btn:hover { opacity:0.9; transform:translateY(-1px); }
+    .pagination { display:flex; align-items:center; justify-content:center; gap:6px; padding:18px 0; }
+    .page-link { display:inline-flex; align-items:center; justify-content:center; min-width:36px; height:36px; border-radius:10px; font-size:0.85rem; font-weight:500; text-decoration:none; transition:all 0.2s; background:#fff; border:1px solid rgba(30,136,229,0.1); color:#4a5568; }
+    .page-link:hover { border-color:#1E88E5; color:#1E88E5; background:rgba(30,136,229,0.03); }
+    .page-link.active { background:#1E88E5; border-color:#1E88E5; color:#fff; }
+    .page-link.dots { border:none; background:transparent; color:#a0aec0; min-width:24px; }
+    .delete-btn { padding:5px 10px; border-radius:8px; border:1px solid rgba(229,57,53,0.2); background:transparent; color:#e53935; font-size:0.82rem; cursor:pointer; transition:all 0.2s; }
+    .delete-btn:hover { background:#e53935; color:#fff; border-color:#e53935; }
+    .page-number { font-size:0.8rem; color:#718096; text-align:center; padding:0 0 6px; }
+    @media (max-width: 480px) {
+      .stats { grid-template-columns: 1fr; }
+      .topbar h1 { font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand"><i class="fas fa-x-ray"></i><span>Vision Teleradiology</span></div>
+    <ul class="sidebar-nav">
+      <li><a href="#" class="active"><i class="fas fa-inbox"></i> Contact Inquiries</a></li>
+      <li><a href="/"><i class="fas fa-globe"></i> View Website</a></li>
+    </ul>
+    <div class="sidebar-footer">
+      <a href="/admin/logout/"><i class="fas fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="mobile-toggle" id="menuToggle" aria-label="Toggle sidebar"><i class="fas fa-bars"></i></button>
+        <h1>Contact Inquiries</h1>
+      </div>
+      <div class="topbar-right">
+        <span style="font-size:0.8rem;color:#718096;"><i class="fas fa-user-shield"></i> Admin</span>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-envelope"></i></div>
+        <div class="stat-number">{{ total }}</div>
+        <div class="stat-label">Total Inquiries</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="fas fa-calendar-day"></i></div>
+        <div class="stat-number">{{ today }}</div>
+        <div class="stat-label">Today's New</div>
+      </div>
+    </div>
+    <div class="contacts-header">
+      <h2><i class="fas fa-list" style="margin-right:8px;color:#1E88E5;"></i> All Messages</h2>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search by name, email or phone..." oninput="filterTable()">
+        </div>
+        <a href="/admin/export-csv/" class="export-btn"><i class="fas fa-download"></i> CSV</a>
+      </div>
+    </div>
+    <div class="table-wrap">
+      {% if contacts %}
+      <table id="contactsTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for c in contacts %}
+          <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.name }}</td>
+            <td>{% if c.email %}{{ c.email }}{% else %}<span style="color:#a0aec0;">—</span>{% endif %}</td>
+            <td>{% if c.phone %}{{ c.phone }}{% else %}<span style="color:#a0aec0;">—</span>{% endif %}</td>
+            <td><span class="msg-preview">{{ c.message }}</span></td>
+            <td><span class="badge">{{ c.created_at.strftime('%d %b %Y') if c.created_at else '' }}</span></td>
+            <td><a href="/admin/contact/{{ c.id }}/" class="view-btn"><i class="fas fa-eye" style="margin-right:4px;"></i> View</a></td>
+            <td><button class="delete-btn" data-id="{{ c.id }}" onclick="deleteContact({{ c.id }})"><i class="fas fa-trash"></i></button></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% if total_pages > 1 %}
+      <div class="pagination">
+        {% if page > 1 %}
+        <a href="?page={{ page - 1 }}" class="page-link"><i class="fas fa-chevron-left"></i></a>
+        {% endif %}
+        {% for p in range(1, total_pages + 1) %}
+          {% if p == page %}
+          <span class="page-link active">{{ p }}</span>
+          {% elif p == 1 or p == total_pages or (p >= page - 2 and p <= page + 2) %}
+          <a href="?page={{ p }}" class="page-link">{{ p }}</a>
+          {% elif p == page - 3 or p == page + 3 %}
+          <span class="page-link dots">…</span>
+          {% endif %}
+        {% endfor %}
+        {% if page < total_pages %}
+        <a href="?page={{ page + 1 }}" class="page-link"><i class="fas fa-chevron-right"></i></a>
+        {% endif %}
+      </div>
+      {% endif %}
+      {% else %}
+      <div class="empty-state">
+        <i class="fas fa-inbox"></i>
+        <p>No inquiries yet. Messages from the contact form will appear here.</p>
+      </div>
+      {% endif %}
+    </div>
+    {% if total > 0 %}
+    <div class="page-number">{{ (page-1)*per_page + 1 }}–{{ ((page-1)*per_page + contacts|length) }} of {{ total }}</div>
+    {% endif %}
+  </div>
+  <script>
+    document.getElementById('menuToggle')?.addEventListener('click', function() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('open');
+    });
+    document.getElementById('sidebarOverlay')?.addEventListener('click', function() {
+      this.classList.remove('open');
+      document.getElementById('sidebar').classList.remove('open');
+    });
+    function filterTable() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#contactsTable tbody tr');
+      rows.forEach(r => {
+        const text = r.textContent.toLowerCase();
+        r.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+    function deleteContact(id) {
+      if (!confirm('Delete this inquiry?')) return;
+      fetch('/admin/contact/' + id + '/delete/', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => { if (d.success) location.reload(); else alert('Delete failed'); })
+        .catch(() => alert('Delete failed'));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Detail — Vision Teleradiology Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f5f0;
+      min-height: 100vh;
+      padding: 28px 32px;
+    }
+    .top-bar { display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
+    .top-bar h1 { font-size:1.3rem; font-weight:700; color:#1a1a1a; }
+    .back-btn { display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:10px; border:1px solid rgba(30,136,229,0.15); background:#fff; color:#4a5568; text-decoration:none; font-size:0.82rem; font-weight:500; transition:all 0.2s; }
+    .back-btn:hover { border-color:#1E88E5; color:#1E88E5; }
+    .card { background:#fff; border-radius:16px; box-shadow:0 2px 12px rgba(0,0,0,0.04); border:1px solid rgba(30,136,229,0.08); max-width:700px; margin:0 auto; overflow:hidden; }
+    .card-header { background:linear-gradient(135deg, #0d2137, #1a3a5c); padding:28px 32px; color:#fff; }
+    .card-header h2 { font-size:1.1rem; font-weight:600; margin-bottom:4px; }
+    .card-header p { font-size:0.82rem; opacity:0.7; }
+    .card-body { padding:32px; }
+    .detail-row { display:flex; padding:14px 0; border-bottom:1px solid rgba(30,136,229,0.06); }
+    .detail-row:last-child { border-bottom:none; }
+    .detail-label { width:120px; min-width:120px; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:#718096; padding-top:2px; }
+    .detail-value { flex:1; font-size:0.92rem; color:#1a1a1a; word-break:break-word; }
+    .detail-value .icon { width:36px; height:36px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; margin-right:10px; }
+    .detail-value .icon.phone { background:rgba(30,136,229,0.1); color:#1E88E5; }
+    .detail-value .icon.email { background:rgba(66,165,245,0.1); color:#42A5F5; }
+    .detail-value .icon.user { background:rgba(46,125,50,0.1); color:#2E7D32; }
+    .detail-value .msg-box { background:#f8faf8; border:1px solid rgba(30,136,229,0.08); border-radius:12px; padding:16px 20px; font-size:0.92rem; color:#4a5568; line-height:1.7; margin-top:4px; }
+    .detail-value a { color:#1E88E5; text-decoration:none; font-weight:500; }
+    .detail-value a:hover { text-decoration:underline; }
+    .actions { margin-top:28px; display:flex; gap:12px; flex-wrap:wrap; }
+    .actions a { display:inline-flex; align-items:center; gap:8px; padding:10px 22px; border-radius:10px; font-size:0.85rem; font-weight:500; text-decoration:none; transition:all 0.2s; }
+    .actions .btn-phone { background:rgba(30,136,229,0.1); color:#1E88E5; border:1px solid rgba(30,136,229,0.2); }
+    .actions .btn-phone:hover { background:#1E88E5; color:#fff; }
+    .actions .btn-email { background:rgba(66,165,245,0.1); color:#42A5F5; border:1px solid rgba(66,165,245,0.2); }
+    .actions .btn-email:hover { background:#42A5F5; color:#fff; }
+    @media (max-width:600px) { body { padding:16px; } .card-body { padding:20px; } .detail-row { flex-direction:column; gap:4px; } .detail-label { width:auto; } .card-header { padding:20px; } }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/admin/dashboard/" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+    <h1>Contact Detail</h1>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h2><i class="fas fa-user" style="margin-right:10px;"></i>{{ contact.name }}</h2>
+      <p>Submitted on {{ contact.created_at.strftime('%d %B %Y at %I:%M %p') if contact.created_at else 'N/A' }}</p>
+    </div>
+    <div class="card-body">
+      <div class="detail-row">
+        <div class="detail-label">Name</div>
+        <div class="detail-value"><span class="icon user"><i class="fas fa-user"></i></span>{{ contact.name }}</div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Email</div>
+        <div class="detail-value">
+          {% if contact.email %}
+          <span class="icon email"><i class="fas fa-envelope"></i></span>
+          <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+          {% else %}<span style="color:#a0aec0;">Not provided</span>{% endif %}
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Phone</div>
+        <div class="detail-value">
+          {% if contact.phone %}
+          <span class="icon phone"><i class="fas fa-phone"></i></span>
+          <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+          {% else %}<span style="color:#a0aec0;">Not provided</span>{% endif %}
+        </div>
+      </div>
+      <div class="detail-row">
+        <div class="detail-label">Date</div>
+        <div class="detail-value">{{ contact.created_at.strftime('%d %B %Y at %I:%M %p') if contact.created_at else 'N/A' }}</div>
+      </div>
+      <div class="detail-row" style="border-bottom:none;">
+        <div class="detail-label">Message</div>
+        <div class="detail-value"><div class="msg-box">{{ contact.message }}</div></div>
+      </div>
+      <div class="actions">
+        {% if contact.phone %}<a href="tel:{{ contact.phone }}" class="btn-phone"><i class="fas fa-phone"></i> Call {{ contact.phone }}</a>{% endif %}
+        {% if contact.email %}<a href="mailto:{{ contact.email }}" class="btn-email"><i class="fas fa-reply"></i> Reply via Email</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
