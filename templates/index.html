@@ -365,9 +365,15 @@
           <div class="section-divider" aria-hidden="true"></div>
         </div>
         <div class="about-intro reveal">
-          <div class="about-intro-card glass-card">
-            <i class="fas fa-quote-left" aria-hidden="true"></i>
-            <p>Teleradiology is the secure electronic transmission of radiological images — <strong>X-rays, CT scans, MRI, and Mammography</strong> — from one location to another for expert interpretation by specialized radiologists, eliminating geographical barriers to quality healthcare in India.</p>
+          <div class="about-intro-split">
+            <div class="about-intro-card glass-card">
+              <i class="fas fa-quote-left" aria-hidden="true"></i>
+              <p>Teleradiology is the secure electronic transmission of radiological images — <strong>X-rays, CT scans, MRI, and Mammography</strong> — from one location to another for expert interpretation by specialized radiologists, eliminating geographical barriers to quality healthcare in India.</p>
+            </div>
+            <div class="about-intro-image glass-card">
+              <img src="{{ url_for('static', filename='images/mri_report.webp') }}" alt="MRI Brain scan report showing multiple diagnostic views" width="400" height="280" loading="lazy">
+              <span class="about-image-caption">Multi-sequence MRI brain reporting</span>
+            </div>
           </div>
         </div>
         <div class="about-steps">
@@ -416,6 +422,16 @@
             </div>
           </article>
         </div>
+        <div class="split-block">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/ct_scan_image.jpeg') }}" alt="3D CT scan reconstruction showing detailed cross-sectional anatomy" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Cross-Sectional Imaging</span>
+            <h3>3D CT <span class="highlight">Reconstruction</span></h3>
+            <p>Advanced CT imaging captures detailed cross-sectional views of the body, reconstructed into 3D volumes for precise anatomical assessment. Our radiologists analyze every slice to deliver accurate diagnoses for head, chest, abdomen and musculoskeletal studies.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -425,6 +441,16 @@
           <span class="section-tag">What We Offer</span>
           <h2 class="section-title" id="services-heading">Our <span class="highlight">Teleradiology Services</span></h2>
           <div class="section-divider" aria-hidden="true"></div>
+        </div>
+        <div class="split-block reverse">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/xray_machine.jpg') }}" alt="Modern digital X-ray machine used in diagnostic radiology" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Digital Radiography</span>
+            <h3>Advanced <span class="highlight">X-Ray Systems</span></h3>
+            <p>Our network of imaging centres features state-of-the-art digital X-ray systems delivering high-resolution diagnostic images with minimal radiation exposure. From chest and musculoskeletal to abdominal studies, we ensure every image meets the highest diagnostic standards.</p>
+          </div>
         </div>
         <div class="services-grid">
           <article class="service-card glass-card hover-lift" data-delay="0" itemscope itemtype="https://schema.org/MedicalTherapy">
@@ -459,6 +485,16 @@
             <p itemprop="description">Expert mammography interpretation for breast cancer screening and diagnostic studies with detailed, accurate BI-RADS reporting.</p>
             <div class="service-hover-glow" aria-hidden="true"></div>
           </article>
+        </div>
+        <div class="split-block">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/ct_machine_cartoon.jpg') }}" alt="CT scanning machine illustration showing medical imaging technology" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Modern Technology</span>
+            <h3>Advanced <span class="highlight">CT Imaging</span></h3>
+            <p>Our partnered imaging centres are equipped with modern CT scanners capable of multi-slice acquisition, low-dose protocols, and advanced reconstructions. From routine exams to complex trauma cases, we handle all CT reporting with speed and precision.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -509,6 +545,16 @@
             <p>HIPAA-compliant data transmission with end-to-end encryption for complete patient confidentiality and data security.</p>
           </div>
         </div>
+        <div class="split-block dark">
+          <div class="split-block-text">
+            <span class="split-tag">High-Resolution Imaging</span>
+            <h3>State-of-the-Art <span class="highlight">MRI Technology</span></h3>
+            <p>We partner with centres featuring advanced MRI systems delivering high-resolution brain, spine, joint, and body imaging. Our radiologists have subspecialty expertise across all MRI sequences and protocols, ensuring comprehensive and accurate reporting every time.</p>
+          </div>
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/mri_machine.jpg') }}" alt="Modern MRI machine used for advanced diagnostic imaging" width="500" height="300" loading="lazy">
+          </div>
+        </div>
       </div>
     </section>
 
@@ -547,7 +593,7 @@
           </article>
           <article class="team-card glass-card zoom-in" data-delay="300" itemscope itemtype="https://schema.org/Person">
             <div class="team-avatar">
-              <img src="{{ url_for('static', filename='images/dr-kumar-devashish.png') }}" alt="Dr. Kumar Devashish, Core Radiologist at Vision Teleradiology - Diagnostic Radiology Expert" class="team-photo" width="150" height="150" loading="lazy" itemprop="image">
+              <img src="{{ url_for('static', filename='images/dr-kumar-devashish2.jpeg') }}" alt="Dr. Kumar Devashish, Core Radiologist at Vision Teleradiology - Diagnostic Radiology Expert" class="team-photo" width="150" height="150" loading="lazy" itemprop="image">
               <div class="avatar-ring" aria-hidden="true"></div>
             </div>
             <h3 class="team-name" itemprop="name">Dr. Kumar Devashish</h3>
@@ -556,8 +602,13 @@
           </article>
         </div>
         <div class="team-note glass-card zoom-in">
-          <i class="fas fa-graduation-cap" aria-hidden="true"></i>
-          <p>Besides our core team, we have a panel of experienced radiologists who are graduates from elite medical colleges of India, ensuring the highest standard of teleradiology reporting quality.</p>
+          <div class="team-note-image">
+            <img src="{{ url_for('static', filename='images/hand_xray.jpg') }}" alt="X-ray image of a hand showing bone structure detail" width="200" height="150" loading="lazy">
+          </div>
+          <div class="team-note-content">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            <p>Besides our core team, we have a panel of experienced radiologists who are graduates from elite medical colleges of India, ensuring the highest standard of teleradiology reporting quality.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -587,6 +638,16 @@
             <p class="vm-sign">— <strong>Amit Raj Sinha</strong>, PGDBM (Delhi), Managing Director</p>
           </div>
         </div>
+        <div class="split-block">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/computer_screen_of_x_ray_meachine.jpg') }}" alt="Radiologist reviewing X-ray images on a diagnostic monitor" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Expert Review</span>
+            <h3>Meticulous <span class="highlight">Report Analysis</span></h3>
+            <p>Every study is reviewed on high-resolution PACS workstations by board-certified radiologists. Our dual-reporting protocol for complex cases ensures no finding is missed. We combine clinical expertise with advanced visualization tools for the highest diagnostic confidence.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -596,6 +657,16 @@
           <span class="section-tag">Get In Touch</span>
           <h2 class="section-title" id="contact-heading">Contact <span class="highlight">Us</span></h2>
           <div class="section-divider" aria-hidden="true"></div>
+        </div>
+        <div class="split-block reverse">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/ct_report.jpg') }}" alt="CT scan diagnostic report showing detailed radiology analysis" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Detailed Reporting</span>
+            <h3>Accurate <span class="highlight">Diagnostic Reports</span></h3>
+            <p>Our reports are structured, comprehensive, and delivered promptly. Each report includes detailed findings, measurements, and clinical correlations. We follow standardized reporting templates with 99.99% accuracy across all modalities — X-ray, CT, MRI, and Mammography.</p>
+          </div>
         </div>
         <div class="contact-grid">
           <div class="contact-info reveal-left" itemscope itemtype="https://schema.org/LocalBusiness">
@@ -679,6 +750,16 @@
               </button>
             </form>
             <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
+          </div>
+        </div>
+        <div class="split-block">
+          <div class="split-block-image">
+            <img src="{{ url_for('static', filename='images/cspine_xray.webp') }}" alt="Cervical spine X-ray showing detailed bone structure" width="500" height="300" loading="lazy">
+          </div>
+          <div class="split-block-text">
+            <span class="split-tag">Digital X-Ray</span>
+            <h3>Precise <span class="highlight">Bone & Joint Evaluation</span></h3>
+            <p>From cervical spine to extremities, our radiologists provide expert X-ray interpretation for musculoskeletal, chest, and abdominal studies. Rapid turnaround with detailed measurements and comparative analysis for accurate clinical decision-making.</p>
           </div>
         </div>
       </div>
