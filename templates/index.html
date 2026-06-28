@@ -11,8 +11,7 @@
 
   <meta name="keywords" content="teleradiology services India, MRI reporting India, CT scan reporting, X-ray reporting services, mammography reporting, radiology reporting India, tele radiology, PACS reporting, diagnostic imaging services, online radiology reports, 24/7 teleradiology, emergency radiology reporting, outsourced radiology, radiologist India">
 
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+
   <meta name="author" content="Vision Teleradiology">
   <meta name="theme-color" content="#0a0a2e">
   <meta name="geo.region" content="IN-UP">
@@ -46,7 +45,8 @@
   <meta name="twitter:description" content="Expert MRI, CT Scan, X-Ray & Mammography reporting with 24/7 support & 99.99% accuracy.">
   <meta name="twitter:image" content="https://visionteleradiology.in/static/images/og-image.png">
   <meta name="twitter:image:alt" content="Vision Teleradiology - Advanced Teleradiology Solutions">
-
+  <meta name="robots" content="index,follow,max-image-preview:none">
+  <meta name="googlebot" content="index,follow,max-image-preview:none">
   <!-- Preconnect & DNS Prefetch for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -568,7 +568,7 @@
         <div class="team-grid">
           <article class="team-card glass-card zoom-in" itemscope itemtype="https://schema.org/Person">
             <div class="team-avatar">
-              <img src="{{ url_for('static', filename='images/amit-raj-sinha.png') }}" alt="Amit Raj Sinha, Managing Director at Vision Teleradiology - Teleradiology Services India" class="team-photo" width="150" height="150" loading="lazy" itemprop="image" data-nosnippet>
+              <img src="{{ url_for('static', filename='images/amit-raj-sinha.png') }}" alt="Amit Raj Sinha, Managing Director at Vision Teleradiology - Teleradiology Services India" class="team-photo" width="150" height="150" loading="lazy"  data-nosnippet>
               <div class="avatar-ring" aria-hidden="true"></div>
             </div>
             <h3 class="team-name" itemprop="name">Amit Raj Sinha</h3>
@@ -584,7 +584,7 @@
           </article>
           <article class="team-card glass-card zoom-in" data-delay="150" itemscope itemtype="https://schema.org/Person">
             <div class="team-avatar">
-              <img src="{{ url_for('static', filename='images/dr-apurv-raj.jpeg') }}" alt="Dr. Apurv Raj, Core Radiologist at Vision Teleradiology - MRI CT Mammography Expert" class="team-photo" width="150" height="150" loading="lazy" itemprop="image" data-nosnippet>
+              <img src="{{ url_for('static', filename='images/dr-apurv-raj.jpeg') }}" alt="Dr. Apurv Raj, Core Radiologist at Vision Teleradiology - MRI CT Mammography Expert" class="team-photo" width="150" height="150" loading="lazy"  data-nosnippet>
               <div class="avatar-ring" aria-hidden="true"></div>
             </div>
             <h3 class="team-name" itemprop="name">Dr. Apurv Raj</h3>
@@ -593,7 +593,7 @@
           </article>
           <article class="team-card glass-card zoom-in" data-delay="300" itemscope itemtype="https://schema.org/Person">
             <div class="team-avatar">
-              <img src="{{ url_for('static', filename='images/dr-kumar-devashish2.jpeg') }}" alt="Dr. Kumar Devashish, Core Radiologist at Vision Teleradiology - Diagnostic Radiology Expert" class="team-photo" width="150" height="150" loading="lazy" itemprop="image" data-nosnippet>
+              <img src="{{ url_for('static', filename='images/dr-kumar-devashish2.jpeg') }}" alt="Dr. Kumar Devashish, Core Radiologist at Vision Teleradiology - Diagnostic Radiology Expert" class="team-photo" width="150" height="150" loading="lazy" data-nosnippet>
               <div class="avatar-ring" aria-hidden="true"></div>
             </div>
             <h3 class="team-name" itemprop="name">Dr. Kumar Devashish</h3>
@@ -816,7 +816,7 @@
 
   <!-- Preload critical assets -->
   <link rel="preload" href="{{ url_for('static', filename='images/logo.png') }}" as="image">
-  <link rel="preload" href="{{ url_for('static', filename='images/amit-raj-sinha.png') }}" as="image">
+  
 
   <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" defer></script>
